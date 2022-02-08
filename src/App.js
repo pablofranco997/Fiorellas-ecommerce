@@ -8,7 +8,7 @@ function App() {
     <>
     <NavBar/>
       <ItemListContainer greeting="¡ItemListconatiner!"/>
-      <ItemCount stock="20" initial="121"/>
+      <ItemCount stock="5" initial="1"/>
     </>
   );
 }
