@@ -1,8 +1,7 @@
 import {useState} from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-const ItemCount = ({stock ="5", initial="1"}) => {
-    const [cantidad, setCantidad] = useState(1);
+const ItemCount = ({stock, initial, onAdd}) => {
+    const [cantidad, setCantidad] = useState(parseInt(initial));
 
     const plus = () => {
         if(cantidad < stock) {
@@ -17,11 +16,20 @@ const ItemCount = ({stock ="5", initial="1"}) => {
         
     }
 
+    const add = () => {
+        if((stock > 1) && (stock >= cantidad)){
+            alert(cantidad);
+        }
+    };
+
+
+
     return(
         <div className="">
             <button className="" onClick={plus}>+</button>
             <p className="">{cantidad}</p>
             <button  className="" onClick={minus}>-</button>
+            <button onClick={add}>Agregar a carrito</button>
         </div>
     )
 };
