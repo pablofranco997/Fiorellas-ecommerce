@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({stock, initial}) => {
     const [cantidad, setCantidad] = useState(parseInt(initial));
 
     const plus = () => {
@@ -17,7 +17,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
     }
 
     const add = () => {
-        if((stock > 1) && (stock >= cantidad)){
+        if((stock > 0) && (stock >= cantidad)){
             alert(cantidad);
         }
     };
