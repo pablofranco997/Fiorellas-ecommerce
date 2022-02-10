@@ -1,4 +1,4 @@
-// export default function item({name, img, precio, stock}){
+// function item({name, img, precio, stock}){
 //     return(
 //         <article stock={stock}>
 //             <span>{name}</span>
@@ -9,5 +9,7 @@
 //         </article>
 //     )
 // }
+
+// export default item
 
 
