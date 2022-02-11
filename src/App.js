@@ -2,8 +2,6 @@ import './App.css';
 import NavBar from './components/navbar';
 import ItemListContainer from "./components/ItemListContainer"
 import ItemCount from './components/ItemCount';
-import itemList from './components/ItemList';
-
 
 
 function App() {
@@ -14,14 +12,10 @@ function App() {
     alert(cantidad);
   };
 
-  itemList();
-
   return (
     <>
     <NavBar/>
-      <ItemListContainer greeting="¡ItemListconatiner!">
-
-      </ItemListContainer>
+      <ItemListContainer greeting="¡ItemListconatiner!"/>
       <ItemCount initial={1} stock ={5} onAdd={add} />
     </>
   );

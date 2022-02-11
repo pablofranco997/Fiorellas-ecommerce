@@ -1,60 +1,22 @@
-const item = [{
-    id: "1",
-    name:"Bouquet Rosas",
-    img:"",
-    precio: "$480",
-    stock:"25",
-    },
-    {
-    id: "2",
-    name:"Bouquet Girasoles",
-    img:"",
-    precio: "$560",
-    stock:"24",
-    },
-    {
-    id: "3",
-    name:"Florero con Rosas",
-    img:"",
-    precio: "$740",
-    stock:"9",
-    },
-    {
-    id: "4",
-    name:"Bouquet de Girasoles",
-    img:"",
-    precio: "$850",
-    stock:"11",
-    }
-];
 
+function Item({name, img, price, stock, id}){
 
+    return(
+        <div className="col mb-5">
+            <div className="card" stock={stock} key={id} style={{width: "15rem"}}>
+            <img className="card-img-top" src={img} alt={name}/>
+            <span>{name}</span>
+            <span>${price}</span>
+            <div className="card-body">
+            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        </div>
 
-// function item({name, img, precio, stock}){
-//     return(
         
-//         <article stock={stock}>
-//             <span>{name}</span>
-//             <span>{precio}</span>
-//             <figure>
-//                 <img src={img} alt={name}></img>
-//             </figure>
-//         </article>
-//     )
-// }
+     )
+ }
 
-// function item({name, img, precio, stock}){
-//    return(
-//         <article stock={stock}>
-//             <span>{name}</span>
-//              <span>{precio}</span>
-//             <figure>
-//                  <img src={img} alt={name}></img>
-//             </figure>
-//         </article>
-//     )
-// }
-
-export default item
+ export default Item
 
 
