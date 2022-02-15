@@ -1,25 +1,18 @@
 import './App.css';
 import NavBar from './components/navbar';
 import ItemListContainer from "./components/ItemListContainer"
-import ItemCount from './components/ItemCount';
 import ItemDetailContainer from './components/ItemDetailContainer';
-
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
-  
-
-
-  const add = (cantidad) => {
-    alert(cantidad);
-  };
-
   return (
-    <>
-    <NavBar/>
-      <ItemDetailContainer/>
-      <ItemListContainer greeting="¡ItemListconatiner!"/>
-      <ItemCount initial={1} stock ={5} onAdd={add} />
-    </>
+    <BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route path='/' element={<ItemListContainer/>} />
+        <Route path='/item/:idItem' element={<ItemDetailContainer/>} />   
+        <Route path='/category/:idCategory' element={<ItemListContainer/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

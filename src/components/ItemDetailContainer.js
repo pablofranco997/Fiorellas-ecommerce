@@ -1,9 +1,11 @@
 import item from "./stock";
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
     const [productsDetail, setProductsDetail] = useState([]);
+    const {idItem} = useParams();
     
     const customFetch = (data) =>{
         return new Promise((resolve) => {
@@ -13,11 +15,11 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setTimeout(() => {
-           customFetch(item[2],"error")
+           customFetch(item[idItem],"error")
            .then (data => setProductsDetail(data))
            .catch (error => alert(error));
          }, 2000);
-    }, [])
+    }, [idItem])
 
     return (
         <div className="container px-4 px-lg-5 mt-5">
