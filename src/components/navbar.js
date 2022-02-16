@@ -18,10 +18,10 @@ const NavBar = () => {
                 <Link to="/" style={{textDecoration: 'none'}}><div className="nav-link active" aria-current="page">Home</div></Link>
                 </li>
                 <li className="nav-item">
-                <Link to="category/1" style={{textDecoration: 'none'}}><div className="nav-link">Rosas</div></Link>
+                <Link to="/category/rosas" style={{textDecoration: 'none'}}><div className="nav-link">Rosas</div></Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="category/2" style={{textDecoration: 'none'}}><div className="nav-link">Girasoles</div></Link>
+                  <Link to="/category/girasoles" style={{textDecoration: 'none'}}><div className="nav-link">Girasoles</div></Link>
                 </li>
               </ul>
               <CartWidget/>

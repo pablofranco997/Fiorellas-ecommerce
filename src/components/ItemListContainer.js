@@ -20,7 +20,7 @@ const ItemListContainer = () => {
            .then (data => setProducts(data))
            .catch (error => alert(error));
         }else{
-            customFetch(item.filter(product => product.categoryId === parseInt(idCategory)),"error")
+            customFetch(item.filter(product => product.categoryId === idCategory),"error")
            .then (data => setProducts(data))
            .catch (error => alert(error));
         }
