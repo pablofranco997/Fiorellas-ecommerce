@@ -24,7 +24,7 @@ const item = [{
     },
     {
     id: 3,
-    name:"Bouquet de Girasoles",
+    name:"Florero con Girasoles",
     img:"https://d3e3r3101xvs9k.cloudfront.net/ProductStorePhotos/Girasoles_y_mini_rosa_rosa_en_jarron_tornasol_principal.jpg",
     price: 850,
     stock: 11,

@@ -25,7 +25,13 @@ const ItemDetailContainer = () => {
         <div className="container px-4 px-lg-5 mt-5">
         <div>
         {
-            productsDetail.length === 0 ? <h1 className="text-center">Cargando ...</h1> : <ItemDetail name={productsDetail.name} stock={productsDetail.stock} img={productsDetail.img} price={productsDetail.price} key={productsDetail.id} />
+            productsDetail.length === 0 ? <h1 className="text-center">Cargando ...</h1> : <ItemDetail
+            name={productsDetail.name}
+            stock={productsDetail.stock}
+            img={productsDetail.img}
+            price={productsDetail.price}
+            key={productsDetail.id}
+            id={productsDetail.id} />
         }
         </div>
         
