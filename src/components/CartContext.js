@@ -36,7 +36,9 @@ const CartContextProvider = ({children}) => {
         setCartList(result);
     }
 
-
+    // const BadgeCount = () =>{
+        
+    // }}
 
     return (
         <CartContext.Provider value={{cartList,addToCart,removeList,deleteItem}} >

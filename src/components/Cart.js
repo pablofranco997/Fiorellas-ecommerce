@@ -7,6 +7,19 @@ import { Link } from "react-router-dom";
 const Cart = () => {
     const test = useContext(CartContext)
 
+    let qtyArr=[];
+    let totalArr=[];
+    let total= 0;
+
+    for(let i=0; i<test.cartList.length; i++){
+        qtyArr.push(test.cartList[i].qty);
+        totalArr.push(test.cartList[i].price);
+    }
+
+    for(let i=0; i<totalArr.length; i++){
+        total += (totalArr[i]*qtyArr[i]);
+    }
+
     return(
         <>
             <div className="p-4 mt-4 mt-lg-0 rounded">
@@ -46,6 +59,14 @@ const Cart = () => {
                                     </>
                                 )
                             }
+                            <tr className="text-end">
+                                <td>
+                                    <h5 className="m-0">Total:</h5>
+                                </td>
+                                <td className="text-end fw-bold">
+                                    ${total}
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -58,7 +79,7 @@ const Cart = () => {
                                 Borrar todo
                             </button>
                         </>
-                }                                           
+                }
             </div>         
         </>   
 )
