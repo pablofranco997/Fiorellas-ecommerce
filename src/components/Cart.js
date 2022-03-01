@@ -23,39 +23,36 @@ const Cart = () => {
                             {
                                 test.cartList.length > 0 &&
                                 test.cartList.map(item =>
-                                    <> 
-                                        <tr>
-                                            <td>
-                                                <Link to={`/item/${item.id}`}><img src={item.img} alt={item.name}  className="rounded me-4" style={{height: 200}}/></Link>
-                                                <div className="m-0 d-inline-block align-middle">
-                                                    <small className="text-body fw-semibold">{item.name}</small>
-                                                    <br/>
-                                                    <small>Cantidad: {item.qty} </small>
-                                                    <br/>
-                                                    <small>Precio: ${item.price} c/u</small>
-                                                </div>
-                                            </td>
-                                            <td className="text-middle align-middle">
-                                                ${(item.price*item.qty)}
-                                            </td>
-                                            <td className="align-middle">
-                                            <DeleteOutlineIcon onClick={() => test.deleteItem(item.id)} sx={{ fontSize: 45 }}/>
-                                            </td>
-                                            
-                                        </tr>
-                                    </>
+                                    <tr key={item.id}>
+                                        <td>
+                                            <Link to={`/item/${item.id}`}><img src={item.img} alt={item.name}  className="rounded me-4" style={{height: 200}}/></Link>
+                                            <div className="m-0 d-inline-block align-middle">
+                                                <small className="text-body fw-semibold">{item.name}</small>
+                                                <br/>
+                                                <small>Cantidad: {item.qty} </small>
+                                                <br/>
+                                                <small>Precio: ${item.price} c/u</small>
+                                            </div>
+                                        </td>
+                                        <td className="text-middle align-middle">
+                                            ${(item.price*item.qty)}
+                                        </td>
+                                        <td className="align-middle">
+                                        <DeleteOutlineIcon onClick={() => test.deleteItem(item.id)} sx={{ fontSize: 45 }}/>
+                                        </td>
+                                    </tr>
                                 )
                             }
-                            <tr className="text-end">
-                                <td>
-                                    <h5 className="m-0">Total:</h5>
-                                </td>
-                                <td className="text-end fw-bold">
-                                    ${test.total}
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
+                    <div className="text-end p-2">
+                        <div>
+                            <h5>Total:</h5>
+                        </div>
+                        <div className="text-end fw-bold">
+                            ${test.total}
+                        </div>
+                    </div>
                 </div>
                 }
                 {
