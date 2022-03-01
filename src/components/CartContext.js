@@ -36,12 +36,21 @@ const CartContextProvider = ({children}) => {
         setCartList(result);
     }
 
-    // const BadgeCount = () =>{
-        
-    // }}
+    let qtyArr=[];
+    let totalArr=[];
+    let total= 0;
+
+    for(let i=0; i<cartList.length; i++){
+        qtyArr.push(cartList[i].qty);
+        totalArr.push(cartList[i].price);
+    }
+
+    for(let i=0; i<totalArr.length; i++){
+        total += (totalArr[i]*qtyArr[i]);
+    }
 
     return (
-        <CartContext.Provider value={{cartList,addToCart,removeList,deleteItem}} >
+        <CartContext.Provider value={{cartList,addToCart,removeList,deleteItem, total}} >
             {children}
         </CartContext.Provider>
     )
