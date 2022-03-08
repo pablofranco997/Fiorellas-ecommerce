@@ -12,10 +12,13 @@ const ItemDetailContainer = () => {
         const fireStoreFetch = async() => {
             const querySnapshot = await getDocs(collection(db, "items"));
 
+
             return querySnapshot.docs.map( document => ({
                 id:document.id,
                 ...document.data()
             }))
+
+            
         };
         fireStoreFetch()
             .then (result => setProductsDetail(result.find(product => product.id === idItem)) )

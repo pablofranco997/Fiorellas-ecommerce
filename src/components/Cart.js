@@ -2,10 +2,49 @@ import { useContext } from "react"
 import { CartContext } from "./CartContext"
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { Link } from "react-router-dom";
+import { serverTimestamp, collection, setDoc, doc, updateDoc, increment} from "firebase/firestore";
+import db from "./utilities/firebaseutilities";
 
 
 const Cart = () => {
     const test = useContext(CartContext)
+
+    const createOrder = () => {
+        let order = {
+            buyer: {
+                email: "leomessi@gmail.com",
+                name: "leo messi",
+                phone: "1234569870"
+            },
+            items: test.cartList.map((it) => {return {id:it.id, price:it.price, name:it.name, quantity: it.qty, itemtotal: (it.qty*it.price)}}) ,
+            date: serverTimestamp(),
+            total: test.total
+        }
+        console.log(order)
+
+        const createOrderFireStore = async () => {
+        const newOrderRef = doc(collection(db,"orders"));
+        await setDoc(newOrderRef, order);
+        return newOrderRef;
+    };
+
+    createOrderFireStore()
+        .then (result => {
+            alert("Tu orden está lista. Id de compra: " + result.id);
+            test.removeList();
+            test.cartList.map(async (item) => {
+                const itemRef = doc(db, "items", item.id);
+                await updateDoc(itemRef, {
+                    stock: increment(-item.qty)
+                })
+            })
+        })
+        .catch (error => console.log(error))
+    
+    
+    };
+
+    
 
     return(
         <>
@@ -62,11 +101,22 @@ const Cart = () => {
                             <button className="btn bg-dark m-2" style={{color:"white"}} onClick={() => test.removeList()}>
                                 Borrar todo
                             </button>
+                            <div className="row mt-4">
+                                <div className="col-sm-6">
+                                        <Link to="/" className="btn text-muted d-none d-sm-inline-block btn-link fw-semibold mdi mdi-arrow-left"> Continue Shopping </Link>
+                                </div> 
+                                <div className="col-sm-6">
+                                    <div className="text-sm-end">
+                                            <button className="mdi mdi-cart-plus me-1 btn btn-danger" onClick={createOrder}>Comprar</button>  
+                                    </div>
+                                </div>
+                            </div>
                         </>
                 }
             </div>         
         </>   
 )
-}
+};
+
 export default Cart
 
