@@ -17,7 +17,7 @@ function ItemDetail(product){
 
     return(
         <div className="container px-4 px-lg-1 my-1" stock={product.stock} key={product.id} id={product.id}>
-                <div className="row gx-4 gx-lg-5 align-items-center">
+                <div className="row gx-4 gx-lg-4 align-items-center">
                     <div className="col-md-6"><img className="card-img-top mb-5 mb-md-0" src={product.img} alt={product.name} /></div>
                     <div className="col-md-6">
                         <div className="small mb-1">SKU: {product.id}</div>
@@ -31,7 +31,7 @@ function ItemDetail(product){
                             ?<div className="d-flex">
                             <ItemCount onAdd={add} stock={product.stock} initial={1} />
                             </div>
-                            : <Link to="/cart"> <button  className="btn btn-primary">Cart</button></Link>
+                            : <Link to="/cart"> <button  className="btn" style={{backgroundColor:"orchid", color:"white"}}>Cart</button></Link>
                         }
                     </div>
                 </div>

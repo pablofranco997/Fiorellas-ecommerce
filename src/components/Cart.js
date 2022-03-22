@@ -44,8 +44,6 @@ const Cart = () => {
     
     };
 
-    
-
     return(
         <>
             <div className="p-4 mt-4 mt-lg-0 rounded">
@@ -53,7 +51,12 @@ const Cart = () => {
                 {test.cartList.length === 0
                 ?
                     <>
-                        <p>No hay nada en tu carrito.</p> <Link to="/" style={{textDecoration:"none"}}> Volver a Inicio</Link>
+                        <div className="text-center mt-5">
+                            <h4 className="header-title">No hay nada en tu carrito.</h4>
+                            <img src="https://www.letrasrecortadas.com/carritoVacio.png" style={{maxWidth:200}}></img>
+                            <br/>
+                            <Link to="/" style={{textDecoration:"none"}}> Volver a Inicio</Link>
+                        </div>
                     </>
                 :
                 <div className="table-responsive border">
@@ -103,11 +106,11 @@ const Cart = () => {
                             </button>
                             <div className="row mt-4">
                                 <div className="col-sm-6">
-                                        <Link to="/" className="btn text-muted d-none d-sm-inline-block btn-link fw-semibold mdi mdi-arrow-left"> Continue Shopping </Link>
+                                        <Link to="/" className="btn text-muted d-none d-sm-inline-block btn-link fw-semibold mdi mdi-arrow-left"> Continua comprando </Link>
                                 </div> 
                                 <div className="col-sm-6">
                                     <div className="text-sm-end">
-                                            <button className="mdi mdi-cart-plus me-1 btn btn-danger" onClick={createOrder}>Comprar</button>  
+                                        <button className="mdi mdi-cart-plus m-2 btn btn-danger" onClick={createOrder}>Comprar</button>  
                                     </div>
                                 </div>
                             </div>
